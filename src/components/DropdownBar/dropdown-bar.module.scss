@@ -1,0 +1,12 @@
+.dropdown_bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    margin-top: 22px;
+    border: 1px solid #F9F1E7;
+    background: #fff;
+
+    display: flex;
+    flex-wrap: wrap;
+}

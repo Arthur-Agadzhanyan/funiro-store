@@ -12,7 +12,7 @@ interface Props {
 }
 
 function AppRouter({isAuth}: Props) {
-    if(isAuth){ // if user authorized, not admin
+    if(isAuth){ // if user authorized, *not admin*
         return(
             <Routes>
                 {privateRoutes.map(({path,Component})=>(

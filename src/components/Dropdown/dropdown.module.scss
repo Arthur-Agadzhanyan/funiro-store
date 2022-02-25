@@ -1,0 +1,29 @@
+@import '@/styles/_mixins';
+
+.dropdown_wrapper{
+    position: relative;
+}
+
+.dropdown{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    @include text(#3A3A3A,16px,500,160%);
+
+    .dropdown__icon{
+        margin-left: 8px;
+        max-width: 17px;
+    }
+}
+
+.bar_opened{
+    opacity: 1;
+    transition: all .3s linear;
+}
+
+.bar_hidden{
+    opacity: 0;
+    transition: all .3s linear;
+    pointer-events: none;
+}
