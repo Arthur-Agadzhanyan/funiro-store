@@ -15,8 +15,8 @@ function AppRouter({isAuth}: Props) {
     if(isAuth){ // if user authorized, *not admin*
         return(
             <Routes>
-                {privateRoutes.map(({path,Component})=>(
-                    <Route path={path} element={<Component/>} />
+                {privateRoutes.map(({path,Component},i)=>(
+                    <Route key={`${path}_${i}`} path={path} element={<Component/>} />
                 ))}
                 <Route path='*' element={<NotFoundPage/>}/>
             </Routes> 
@@ -25,8 +25,8 @@ function AppRouter({isAuth}: Props) {
 
     return ( // if user not authorized
         <Routes>
-            {publicRoutes.map(({path,Component})=>(
-                <Route path={path} element={<Component/>} />
+            {publicRoutes.map(({path,Component},i)=>(
+                <Route key={`${path}_${i}`} path={path} element={<Component/>} />
             ))}
             <Route path='*' element={<NotFoundPage/>}/>
         </Routes> 
