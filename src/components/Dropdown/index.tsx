@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState }  from 'react'
+import React, { JSXElementConstructor, useEffect, useRef, useState }  from 'react'
 import ArrowIcon from "@/assets/img/ArrowDownIcon"
 import s from "./dropdown.module.scss"
 import DropdownBar from '../DropdownBar'
 import { closeIfClickAnywhere } from '@/utils/close_when_click'
 
 interface Props {
-    children?: React.ReactNode,
+    children: React.ReactNode,
     value: string,
     className?: string,
     barClassName?: string
