@@ -4,13 +4,20 @@ import Container from '../Container'
 import s from "./navbar.module.scss"
 import Dropdown from '../Dropdown'
 import DropdownItem from '../DropdownBar/DropdownItem'
+import TextField from '../TextField'
+import SearchIcon from '@/assets/img/SearchIcon'
 
 function NavBar() {
-
     const productsBar = [
         {name: 'Chairs', link:'/products/chairs'},
         {name: 'Sofas', link:'/products/sofas'},
         {name: 'Tables', link:'/products/tables'},
+    ]
+
+    const roomsBar = [
+        {name: 'Office Rooms', link:'/rooms/office'},
+        {name: 'House Rooms', link:'/rooms/sofas'},
+        {name: 'Tables', link:'/rooms/tables'},
     ]
 
     return (
@@ -32,7 +39,23 @@ function NavBar() {
                     </li>
 
                     <li>
-                        <Link to="/dashboard">Dashboard</Link>
+                        <Dropdown barClassName={s.dropdown_bar} value='Rooms'>
+                            {roomsBar.map((item,i)=>(
+                                <DropdownItem 
+                                    key={`${item}_${i}`} 
+                                    href={item.link} 
+                                    className={s.bar__item} 
+                                >
+                                    {item.name}
+                                </DropdownItem>
+                            ))}
+                        </Dropdown>
+                    </li>
+                    <li>
+                        <TextField
+                            icon={<SearchIcon/>}
+                            placeholder="Search for minimalist chair"
+                        />
                     </li>
                 </ul>
             </Container>

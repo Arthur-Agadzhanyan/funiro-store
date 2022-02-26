@@ -6,10 +6,10 @@ interface Props {
     children: React.ReactNode
 }
 
-function DropdownBar({children,className}: Props) {
+function DropdownBar({children,className=''}: Props) {
     return (
         <div
-            className={`${s.dropdown_bar} ${className ? className : ''}`}
+            className={`${s.dropdown_bar} ${className}`}
         >
             {children}
         </div>

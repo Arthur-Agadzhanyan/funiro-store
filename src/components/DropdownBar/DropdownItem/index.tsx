@@ -7,10 +7,10 @@ interface Props {
     href?: string
 }
 
-function DropdownItem({children,className,href}: Props) {
+function DropdownItem({children,className='',href}: Props) {
     if(href){
         return (
-            <a href={href} className={`${s.dropdown_item} ${className ? className : ''}`}>
+            <a href={href} className={`${s.dropdown_item} ${className}`}>
                 {children}
             </a>
         )

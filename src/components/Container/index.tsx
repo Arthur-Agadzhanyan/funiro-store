@@ -7,13 +7,13 @@ interface Props {
     className?: string
 }
 
-function Container({children,mode,className}: Props) {
+function Container({children,mode,className=''}: Props) {
     const containerWithMods = ()=>{
         return mode && (mode == 'left' ? s.container_left : s.container_right)
     }
 
     return (
-        <div className={`${s.container} ${containerWithMods()} ${className ? className : ''}`}>
+        <div className={`${s.container} ${containerWithMods()} ${className}`}>
             {children}
         </div>
     )

@@ -1,7 +1,8 @@
-import React, { useState }  from 'react'
+import React, { useEffect, useRef, useState }  from 'react'
 import ArrowIcon from "@/assets/img/ArrowDownIcon"
 import s from "./dropdown.module.scss"
 import DropdownBar from '../DropdownBar'
+import { closeIfClickAnywhere } from '@/utils/close_when_click'
 
 interface Props {
     children?: React.ReactNode,
@@ -10,17 +11,23 @@ interface Props {
     barClassName?: string
 }
 
-function Dropdown({children,value,className,barClassName}: Props) {
+function Dropdown({children,value,className='',barClassName}: Props) {
     const [open,setOpen] = useState(false)
+    const dropdown = useRef<HTMLDivElement>(null)
 
     const toggleBar = ()=>{
         setOpen(!open);
     }
 
+    useEffect(()=>{
+        // close the list when you click anywhere on the screen
+        closeIfClickAnywhere(dropdown,open,setOpen)
+    })
+
     return (
-        <div className={s.dropdown_wrapper}>
-            <span onClick={toggleBar} className={`${s.dropdown} ${className ? className : ''}`}>
-                {value} <ArrowIcon className={s.dropdown__icon}/>
+        <div ref={dropdown} className={s.dropdown_wrapper}>
+            <span onClick={toggleBar} className={`${s.dropdown} ${className}`}>
+                {value} <ArrowIcon className={`${s.dropdown__icon} ${open ? s.icon_rotate : ''}`}/>
             </span>
 
             <DropdownBar className={`${open ? s.bar_opened : s.bar_hidden } ${barClassName ? barClassName : ''}`}>
