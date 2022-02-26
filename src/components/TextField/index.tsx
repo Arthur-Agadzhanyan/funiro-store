@@ -15,10 +15,10 @@ interface Props {
 function TextInput({icon, placeholder,className='',value,iconClass='',inputClass='',iconClicked, onChange}: Props) {
     return (
         <div className={`${s.text_field} ${className}`}>
-            <div className={`${s.field__icon} ${iconClass}`} onClick={iconClicked}>{icon}</div>
+            {icon && <div className={`${s.field__icon} ${iconClass}`} onClick={iconClicked}>{icon}</div>}
             <input 
                 type="text"
-                className={`${s.field__input} ${inputClass}`}
+                className={`${s.field__input} ${inputClass} ${icon ? "" : s.without_icon}`}
                 value={value ? value : value} 
                 onChange={onChange}
                 placeholder={placeholder} 
