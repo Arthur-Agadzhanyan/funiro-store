@@ -18,7 +18,7 @@ export default function App() {
   return (
     <Router>
       <NavBar/>
-      <Button>Shop Now</Button>
+      <Button variant="outlined">Shop Now</Button>
       <AppRouter isAuth={!!user}/>
     </Router>
   );
